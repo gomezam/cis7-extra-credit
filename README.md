@@ -1,23 +1,5 @@
 # cis7-extra-credit
 
-/*
-Write a program that will allow a user to create a graph (no visuals needed)
-
-Initially the graph will contain 0 verticies and 0 edges
-Allow the user to add vertices--
-Allow the user to add edges--
-At any given time, the program should inform the user of the following information:
-
-Vertex with the highest degree --
-
-List of isolated vertices --
-
-Number of loops--
-
-Is the graph connected?--
-
-Is the graph complete?--
-*/
 #include <iostream>
 #include <string>
 #include <vector>
@@ -54,8 +36,8 @@ int main()
 	bool exit = false;
 	do
 	{
-		cout << "Please choose one option below. /n";
-		cout << "1. Add vertice /n2. Add edge /n3. Highest Degree /n4. Isloated vertice /n5. Loops /n6. Connected Graph? /n7. Complete Graph?" << endl;
+		cout << "Please choose one option below. \n";
+		cout << "1. Add vertice \n2. Add edge \n3. Highest Degree \n4. Isloated vertice \n5. Loops \n6. Connected Graph? \n7. Complete Graph?" << endl;
 		cin >> answer;
 		while (answer < 1 || answer > 7)
 		{
@@ -121,7 +103,7 @@ void addEdge(string node1, string node2)
 	int id1;
 	int id2;
 
-	for (int i = 0; i < vertices.size; i++)
+	for (int i = 0; i < vertices.size(); i++)
 	{
 		if (vertices[i].name == node1)
 		{
@@ -131,7 +113,7 @@ void addEdge(string node1, string node2)
 
 	}
 
-	for (int i = 0; i < vertices.size; i++)
+	for (int i = 0; i < vertices.size(); i++)
 	{
 		if (vertices[i].name == node2)
 		{
@@ -157,7 +139,7 @@ void addEdge(string node1, string node2)
 void highestDegree()
 {
 	int highI = 0;
-	for (int i = 0; i < vertices.size; i++)
+	for (int i = 0; i < vertices.size(); i++)
 	{
 		if (highI < vertices[i].connections)
 		{
@@ -171,7 +153,7 @@ void highestDegree()
 void isoVertice()
 {
 	vector <node> noC;
-	for (int i = 0; i < vertices.size; i++)
+	for (int i = 0; i < vertices.size(); i++)
 	{
 		if (vertices[i].connections == 0)
 		{
@@ -179,15 +161,15 @@ void isoVertice()
 		}
 	}
 
-	if (noC.size == 0)
+	if (noC.size() == 0)
 	{
 		cout << "There are no isolated vertices." << endl;
 	}
 	else
 	{
-		for (int i = 0; i < noC.size; i++)
+		for (int i = 0; i < noC.size(); i++)
 		{
-			cout << noC[i].name << " /n";
+			cout << noC[i].name << " \n";
 		}
 	}
 }
@@ -195,7 +177,7 @@ void isoVertice()
 void loops()
 {
 	int loop = 0;
-	for (int i = 0; i < edgeFrom.size; i++)
+	for (int i = 0; i < edgeFrom.size(); i++)
 	{
 		if (edgeFrom[i] == edgeTo[i])
 		{
@@ -212,14 +194,14 @@ void gConnected()
 	bool connected = false;
 	bool con = false;
 	int a = 0;
-	for (int i = 0; i < edgeFrom.size; i++)
+	for (int i = 0; i < edgeFrom.size(); i++)
 	{
-		for (int j = 0; j < edgeTo.size; i++)
+		for (int j = 0; j < edgeTo.size(); i++)
 		{
 			int f = 0;
 			a = 0;
 
-			while (f < edgeTo.size)
+			while (f < edgeTo.size())
 			{
 				if (edgeFrom[i] == edgeTo[i] + a)
 				{
@@ -257,14 +239,14 @@ void gComplete()
 	bool connected = false;
 	bool con = false;
 	int a = 0;
-	for (int i = 0; i < edgeFrom.size; i++)
+	for (int i = 0; i < edgeFrom.size(); i++)
 	{
-		for (int j = 0; j < edgeTo.size; i++)
+		for (int j = 0; j < edgeTo.size(); i++)
 		{
 			int f = 0;
 			a = 0;
 
-			while (f < edgeTo.size)
+			while (f < edgeTo.size())
 			{
 				if (edgeFrom[i] == edgeTo[i] + a)
 				{
@@ -305,7 +287,7 @@ bool isolatedVertice()
 {
 	bool iso = false;
 	vector <node> noC;
-	for (int i = 0; i < vertices.size; i++)
+	for (int i = 0; i < vertices.size(); i++)
 	{
 		if (vertices[i].connections == 0)
 		{
@@ -313,13 +295,13 @@ bool isolatedVertice()
 		}
 	}
 
-	if (noC.size == 0)
+	if (noC.size() == 0)
 	{
 		iso = false;
 	}
 	else
 	{
-		for (int i = 0; i < noC.size; i++)
+		for (int i = 0; i < noC.size(); i++)
 		{
 			iso = true;
 		}
